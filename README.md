@@ -3,7 +3,7 @@ This is a work in progress 8-bit virtual machine
 Currently there are only a few instructions that can only be written in binary
 The nmeumonics of the instructions have not been decided yet but the full list of intended instructions can be found in the TOD file
 
-#========8_bit_instructions======
+#========8_bit_instructions========
 
 [0][1][0][0][0][0][1][1]
 
