@@ -4,7 +4,7 @@
 unsigned char get_num_args(){
 	unsigned char out = *PC;
 	out = out >> 6;
-	printf("out = %d", out);
+ 	//printf("out = %d", out);
 	if(out == 3){
 		//printf("invalid # of args\n memory address# %d", (char)(PC - memory));
 	}
@@ -69,6 +69,30 @@ switch(last4){
 }
 }
 void stack_mem(char last4, char args[]){
+			int i;
+			int j;
+	switch(last4){
+		case 1:
+		printf("arg[0] = %d = %d\n",((unsigned char) args[0]), *(memory + args[0]));
+		printf("SP = %d = %d\n", (int)(SP - memory), *SP);
+			*SP = *(memory + args[0]);
+			*SP--;
+			break;
+		case 2:
+			j = args[0];
+			for(i =0; i <= args[1]; i++){
+		printf("SP = %d = %d\n", (int)(SP - memory), *SP);
+				j++;
+				*SP = *(memory + j);
+				SP--;
+			}
+			break;
+		case 3:
+			*(memory + args[0]) = *SP;
+			SP++;
+			break;
+
+	}
 }
 void bit(char last4, char args[]){
 }

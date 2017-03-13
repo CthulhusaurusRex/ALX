@@ -7,18 +7,19 @@ first 2 bits:rith
 	11: error
 
 second 2 bits:
+'x' marks done
 	00: arithmetic
-	10000001 - add mem1 mem2
-	01000001 - add mem1 to its self
-	10000010 - sub mem1 mem2
-	10000011 - mult mem1 mem2
-	01000101 - sqr mem1
-	10000100 - div mem1 mem2
-	01000110 - inc mem1
-	01000111 - dec mem1
+x	10000001 - add mem1 mem2
+x	01000001 - add mem1 to its self
+x	10000010 - sub mem1 mem2
+x	10000011 - mult mem1 mem2
+x	01000101 - sqr mem1
+x	10000100 - div mem1 mem2
+x	01000110 - inc mem1
+x	01000111 - dec mem1
 	01: stack & mem instructions
-	01010001 - push mem1 to SP and dec SP
-	10010010 - push mem1 # push all from number to stack 
+x	01010001 - push mem1 to SP and dec SP
+x	10010010 - push mem1 # push all from number to stack 
 	01010011 - pop mem1 top of stack to mem1 inc SP
 	01010100 - mem1 move SP to mem1
 	10010101 - mem1 mem2 switch values of mem1 and mem2
