@@ -20,9 +20,9 @@ x	01000111 - dec mem1
 	01: stack & mem instructions
 x	01010001 - push mem1 to SP and dec SP
 x	10010010 - push mem1 # push all from number to stack 
-	01010011 - pop mem1 top of stack to mem1 inc SP
-	01010100 - mem1 move SP to mem1
-	10010101 - mem1 mem2 switch values of mem1 and mem2
+x	01010011 - pop mem1 top of stack to mem1 inc SP
+x	01010100 - mem1 move SP to mem1
+x	10010101 - mem1 mem2 switch values of mem1 and mem2
 	10: bit instructions
 	11: jump instructions
 	 

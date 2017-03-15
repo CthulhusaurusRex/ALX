@@ -20,11 +20,13 @@ for(i = 0; i < 28; i++){
 }
 init_mem(a);
 *(memory) = 146;
-*(memory +1) = 2;
+*(memory +1) = 10;
 *(memory +2) = 3;
-*(memory +3) = 122;
-*(memory +4) = 43;
-*(memory +5) = 69;
+*(memory +3) = 83;
+*(memory +4) = 5;
+*(memory +10) = 122;
+*(memory +11) = 43;
+*(memory +12) = 69;
 
 
 //printf("PC = %d\n", *PC);
@@ -40,6 +42,8 @@ display_init();
 //printf("location of PC = %d\n", (int)(PC - memory));
 //printf("value of PC = %d \n", (unsigned char)*PC);
 init_stack();
+print_mem();
+inst_tick();
 print_mem();
 inst_tick();
 print_mem();

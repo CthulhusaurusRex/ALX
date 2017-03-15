@@ -12,16 +12,19 @@ unsigned char get_num_args(){
 }
 void inst_tick(){
 unsigned char cur = get_num_args();
+printf("Decoding instruction: %d\n", inst);
+printf("# of args = %d\n", cur);
 unsigned char args[cur];
 int i;
 unsigned char inst = *PC ;
 inst &= ~(1 << 7); // turn off bit 7
 inst &= ~(1 << 6); //turn off bit 6
-printf("type of instruction = %d\n", (inst >> 4));
+
 for(i = 0; i < cur; i++){
 ++PC;
 args[i] = *PC;
 }
+PC++;
 unsigned char last = inst;
 last &= ~(1 << 5);
 last &= ~(1 << 4);
@@ -73,24 +76,31 @@ void stack_mem(char last4, char args[]){
 			int j;
 	switch(last4){
 		case 1:
-		printf("arg[0] = %d = %d\n",((unsigned char) args[0]), *(memory + args[0]));
-		printf("SP = %d = %d\n", (int)(SP - memory), *SP);
 			*SP = *(memory + args[0]);
 			*SP--;
 			break;
 		case 2:
 			j = args[0];
-			for(i =0; i <= args[1]; i++){
-		printf("SP = %d = %d\n", (int)(SP - memory), *SP);
-				j++;
+			for(i =0; i < args[1]; i++){
+				SP--;	
+				//printf("SP = %d = %d\n", (int)(SP - memory), *SP);
 				*SP = *(memory + j);
-				SP--;
+				j++;
 			}
 			break;
 		case 3:
 			*(memory + args[0]) = *SP;
 			SP++;
 			break;
+		case 4:
+			SP = (memory + arg[0]);
+			break;
+		case 5:
+			char *temp;
+			temp = (memory+arg[0]); 
+			(memory+arg[0]) =  (memory+arg[1]);
+			(memory+arg[1]) = temp;
+
 
 	}
 }
