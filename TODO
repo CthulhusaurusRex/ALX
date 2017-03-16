@@ -25,4 +25,10 @@ x	01010100 - mem1 move SP to mem1
 x	10010101 - mem1 mem2 switch values of mem1 and mem2
 	10: bit instructions
 	11: jump instructions
-	 
+	00110000 - clear flag register
+	01110001 - jmp unconditionaly to mem1
+	01110010 - if flag reg = GT jmp mem1
+	01110011 - if flag reg = LT jmp mem1
+	01110100 - if flag reg = EQ jmp mem1
+	11110101 - cmp mem1, mem2 set flag reg accordingly
+	

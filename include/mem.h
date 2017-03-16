@@ -2,6 +2,7 @@ unsigned char *memory;
 unsigned char *mem_end;
 unsigned char *SP;
 unsigned char *PC;
+unsigned char *FR;
 //static char R1
 //static char IR;
 void init_mem(unsigned char *p);

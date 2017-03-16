@@ -108,3 +108,11 @@ void bit(char last4, char args[]){
 }
 void jump(char last4, char args[]){
 }
+	switch(last4){
+		case 0:
+			*FR = 0;
+			break;
+		case 1: 
+			PC = (memory + arg[0]);
+			break;
+	}
