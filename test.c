@@ -16,14 +16,14 @@ printf("%d", sizeof(a)/sizeof(b));
 int i;
 unsigned char a[28];// = {81,3,4,24,68,55,65,74,12,71,'@',1,1};
 for(i = 0; i < 28; i++){
-	a[i] = 1;
+	a[i] = 0;
 }
 init_mem(a);
-*(memory) = 146;
-*(memory +1) = 10;
-*(memory +2) = 3;
+*(memory) = 181;
+*(memory +1) = 3;
+*(memory +2) = 4;
 *(memory +3) = 83;
-*(memory +4) = 5;
+*(memory +4) = 82;
 *(memory +10) = 122;
 *(memory +11) = 43;
 *(memory +12) = 69;
@@ -42,11 +42,9 @@ display_init();
 //printf("location of PC = %d\n", (int)(PC - memory));
 //printf("value of PC = %d \n", (unsigned char)*PC);
 init_stack();
-print_mem();
 inst_tick();
-print_mem();
-inst_tick();
-print_mem();
+
+printf("FR = %d\n", FR);
 //printf("valu of memory location 3 = %d\n", (unsigned char)*(memory+3));
 /*printf("lowest memory address is %d\n", (int)(mem_end - & a[0]));
 	char *msg = "BOOTING ALX...\0";

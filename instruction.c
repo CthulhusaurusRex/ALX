@@ -12,7 +12,7 @@ unsigned char get_num_args(){
 }
 void inst_tick(){
 unsigned char cur = get_num_args();
-printf("Decoding instruction: %d\n", inst);
+//printf("Decoding instruction: %d\n", inst);
 printf("# of args = %d\n", cur);
 unsigned char args[cur];
 int i;
@@ -28,6 +28,7 @@ PC++;
 unsigned char last = inst;
 last &= ~(1 << 5);
 last &= ~(1 << 4);
+//printf("inst = %d", (inst >> 4));
 switch(inst >> 4){
 case 0:
 	arithmetic(last, args);
@@ -74,6 +75,7 @@ switch(last4){
 void stack_mem(char last4, char args[]){
 			int i;
 			int j;
+			char *temp;
 	switch(last4){
 		case 1:
 			*SP = *(memory + args[0]);
@@ -93,13 +95,13 @@ void stack_mem(char last4, char args[]){
 			SP++;
 			break;
 		case 4:
-			SP = (memory + arg[0]);
+			SP = (memory + args[0]);
 			break;
 		case 5:
-			char *temp;
-			temp = (memory+arg[0]); 
-			(memory+arg[0]) =  (memory+arg[1]);
-			(memory+arg[1]) = temp;
+			
+			*temp = *(memory+args[0]); 
+			*(memory+args[0]) =  *(memory+args[1]);
+			*(memory+args[1]) = *temp;
 
 
 	}
@@ -107,12 +109,22 @@ void stack_mem(char last4, char args[]){
 void bit(char last4, char args[]){
 }
 void jump(char last4, char args[]){
-}
+char c; 
 	switch(last4){
 		case 0:
-			*FR = 0;
+			FR = 0;
 			break;
 		case 1: 
-			PC = (memory + arg[0]);
+			PC = (memory + args[0]);
 			break;
+		case 5:
+			c = (char)(*(memory + args[0]) - *(memory + args[1]));
+			if(c > 0){
+				FR |= (1 << 7);
+			} else if( c < 0){
+				FR |= (1 << 6);
+			}else{
+				FR |= (1 << 5);
+			}
 	}
+}

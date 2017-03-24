@@ -30,5 +30,11 @@ x	10010101 - mem1 mem2 switch values of mem1 and mem2
 	01110010 - if flag reg = GT jmp mem1
 	01110011 - if flag reg = LT jmp mem1
 	01110100 - if flag reg = EQ jmp mem1
-	11110101 - cmp mem1, mem2 set flag reg accordingly
-	
+x	11110101 - cmp mem1, mem2 set flag reg accordingly
+Flag Register:
+bit 0: mem1 greater than
+bit 1: mem1 less then
+bit 2: zero flag
+bit 3: equal flag
+bit 4: overflow
+bit 5: carry
