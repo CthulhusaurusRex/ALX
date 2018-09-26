@@ -1,5 +1,5 @@
 # ALX
-This is a work in progress 8-bit virtual machine
+This is a work in progress 8-bit emulator?
 Currently there are only a few instructions that can only be written in binary
 The nmeumonics of the instructions have not been decided yet but the full list of intended instructions can be found in the TOD file
 
@@ -21,7 +21,7 @@ This whole translation is done through the use of switch statements which is pro
 
 #=====memory=====
 
-Each instnace can have up to 256bytes of memory.
+Each instance can have up to 256bytes of memory.
 Memory can be allocated and should be allocated for devices before the stack is initialized.
 
 an example of this is located in drivers/display.c
